@@ -1,0 +1,20 @@
+[[redirects]]
+  from = "/"
+  to = "/en-at"
+  status = 302
+  force = true
+  conditions = {Language = ["en"], Country = ["AT"]}
+
+[[redirects]]
+  from = "/"
+  to = "/fr-fr"
+  status = 302
+  force = true
+  conditions = {Language = ["fr"]}
+
+[[redirects]]
+  from = "/"
+  to = "/en-us"
+  status = 302
+  force = true
+  conditions = {Country = ["US"]}
