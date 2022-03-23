@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { Router, useRouter } from "next/router";
+import { useRouter } from "next/router";
 import Cookies from "universal-cookie";
 
 const localeMap = {
@@ -46,12 +46,11 @@ export default function Home() {
         <ul>
           {Object.keys(localeMap).map((locale) => {
             return (
-              <li>
+              <li key={locale}>
                 <button
-                  key={locale}
                   onClick={() => {
                     setLocaleCookies(locale);
-                    push("/");
+                    push("/", "/", { locale });
                   }}
                 >
                   Set locale to {locale}
@@ -61,12 +60,7 @@ export default function Home() {
           })}
 
           <li>
-            <button
-              onClick={() => {
-                clearLocaleCookies();
-                push("/");
-              }}
-            >
+            <button onClick={() => clearLocaleCookies()}>
               Clear locale cookies
             </button>
           </li>
