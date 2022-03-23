@@ -35,7 +35,7 @@ function clearLocaleCookies() {
 }
 
 export default function Home() {
-  const { locale, reload } = useRouter();
+  const { locale, push } = useRouter();
   return (
     <>
       <Head>
@@ -51,7 +51,7 @@ export default function Home() {
                   key={locale}
                   onClick={() => {
                     setLocaleCookies(locale);
-                    reload("/");
+                    push("/");
                   }}
                 >
                   Set locale to {locale}
@@ -64,7 +64,7 @@ export default function Home() {
             <button
               onClick={() => {
                 clearLocaleCookies();
-                reload("/");
+                push("/");
               }}
             >
               Clear locale cookies
